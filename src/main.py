@@ -9,8 +9,10 @@ def main() -> None:
     Game Proc
     Formal Spec - данные (математическое описание нашей игры) устройства логики мира в некоторой математической нотации
     """
+    start_place = "город"
     creat = Creator.create_creator(entity=Creature)
-    player = Creator.create_creator(entity=Player)
+    player = Creator.create_creator(entity=Player, start_place = start_place)
+    player.move("деревня")
     print("Hello, world!")
 
 
