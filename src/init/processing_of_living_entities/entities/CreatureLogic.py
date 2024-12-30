@@ -1,9 +1,22 @@
-from objects.creature import Creature
 import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
-class Creator:
+class Creature:
+    """
+    Класс существ
+    """
+    def __init__(self, gold: int, rewarding_exp: int):
+        """
+        Класс инициализации существ
+        """
+        self.gold = gold
+        self.rewarding_exp = rewarding_exp
+        
+    #def move(self):
+
+
+class CreatureLogic:
     @staticmethod
     def create_creator(entity, **kwargs) -> Creature:
         """
