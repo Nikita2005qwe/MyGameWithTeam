@@ -8,24 +8,15 @@ class Player(Creature):
     """
     Класс игрок
     """
-    def __init__(self, start_place: str, gold: int, experience: int):
+    def __init__(self, start_place: str, characteristics: dict[str, int], gold: int, experience: int, coords: list[int, int]):
         """
         Инициализация объекта Player
         """
-        super().__init__(gold, 0)
-        self.place = start_place
+        super().__init__(characteristics, gold, 0, coords)
+        self.current_place = start_place
         self.experience = experience
         self.exp_for_lvl_up = None
         self.level_experience = PlayerLogic.get_level(self)
-    
-    def move(self, new_place: str):
-        """
-        Метод перемещающий пользователя в новую локацию
-        """
-        # Логируем
-        logging.info(f"Пользователь переместился на место: {new_place}")
-        # Перемещаемся
-        self.place = new_place
     
     def add_experience(self, exp) -> bool:
         self.experience += exp
@@ -39,7 +30,7 @@ class Player(Creature):
         """
         Метод который возвращает текущее местоположение пользователя
         """
-        return self.place
+        return self.current_place
     
     def start_fight(self, entity: Creature):
         """

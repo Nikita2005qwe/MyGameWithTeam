@@ -1,0 +1,8 @@
+{
+  "Nikita": {"start_place": "остров_1",
+             "gold": 0,
+             "experience": 0,
+             "coords": [100, 100],
+             "characteristics": {"speed": 1}
+  }
+}

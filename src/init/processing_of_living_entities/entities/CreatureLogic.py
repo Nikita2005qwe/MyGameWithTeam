@@ -6,15 +6,21 @@ class Creature:
     """
     Класс существ
     """
-    def __init__(self, gold: int, rewarding_exp: int):
+    def __init__(self, characteristics: dict[str, int], gold: int, rewarding_exp: int, coords: list[int, int]):
         """
         Класс инициализации существ
         """
+        self.characteristics = characteristics
         self.gold = gold
         self.rewarding_exp = rewarding_exp
-        
-    #def move(self):
+        self.coords = coords
 
+    def move(self, up: int, right: int):
+        """
+        Метод перемещающий существо по локации
+        """
+        self.coords[0] += right * self.characteristics["speed"]
+        self.coords[1] += up * self.characteristics["speed"]
 
 class CreatureLogic:
     @staticmethod
